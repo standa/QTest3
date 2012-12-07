@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images" >
+        <file>images/copy.png</file>
+        <file>images/create-dir.png</file>
+        <file>images/delete.png</file>
+        <file>images/exit.png</file>
+        <file>images/move.png</file>
+    </qresource>
+</RCC>

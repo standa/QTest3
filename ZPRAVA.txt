@@ -1,0 +1,83 @@
+--------------------------------------------------------------------------------
+
+File manager
+
+v 0.1
+
+@author Stanislav Jaša
+jasastan@fel.cvut.cz
+
+--------------------------------------------------------------------------------
+
+== Základní cíle programu ==
+
+Souborový manažer je program, který umí jednoduše kopírovat soubory a adresáře,
+mazat je, vytvářet a přejmenovávat.
+
+Základní použití je pomocí myši a kláves Shift a Ctrl, přičemž Shift umožňuje
+výber rozsahů souborů a Ctrl v kombinaci s myší umožňuje výběr jednotlivých
+souborů/adresářů.
+
+1. kliknutím do okna vlevo na jeden soubor a kliknutím do pravého panelu
+je možné provést operaci kopírování - stiskem tlačítka Copy
+
+2. tlačítko Delete vybere položku ve výpisu a smaže ji. Program se vždy
+jedenkrát zeptá, zda uživatel souhlasí s výmazem, poté se již pro jednotlivé
+položky neptá.
+
+3. tlačítko Move je akce pro přesun souborů z levého do pravého panelu
+a naopak. V podstatě tato fuknce kopíruje přístup Copy a Delete.
+
+4. tlačítko Create Dir umožňuje rychle kdekoli v adresářové struktuře vytvořit
+nový adresář.
+
+Vyvíjeno a testováno v prostředí Qt Creator na Qt 4.7.
+Program je tedy napsán tak, že funguje na Windows i na distribucích linuxu,
+a to i při kompilaci na cílovém počítači nebo operačním systému.
+
+== Zvolené řešení ==
+
+Toto řešení používá vývojový framework Qt ve verzi 4.7. Celý program byl
+vytvořen v operačním systému Linux Mint, ale dá se předpokládat funkčnost
+v jakémkoli operačním systému, který je podporovaný platformou Qt.
+
+Program je členěn na tři logické třídy:
+- widget.h
+- copydialog.h
+- deletedialog.h
+
+=== widget.h - třída Widget ===
+
+Tento soubor definuje rozhraní pro zobrazení hlavních komponent programu
+(widgetů). Hlavní okno aplikace je rozděleno na tři části - levé a pravý panel
+a lištu tlačítek k ovládání. Tato třída také definuje ovládání pomocí
+funkčních kláves na klávesnici:
+- klávesy F5 pro kopírování souboru / adresáře,
+- klávesy F7 pro vytvoření adresáře,
+- klávesy F8 pro smazání souboru / adresáře.
+
+=== copydialog.h - třída CopyDialog ===
+
+Tento soubor definuje dialog pro potvrzení kopie souboru ze zdrojového
+do cílového adresáře. Vlastní práce probíhá ve třídě Widget.
+
+=== deletedialog.h - třídy DeleteDialog ===
+
+Analogicky zobrazuje tato třída odpovídající dialog pro výmaz souboru / adresáře.
+
+== Závěr a zhodnocení ==
+
+Knihovna Qt je velmi navržena velmi robustně a práce s ní je velice příjemná.
+
+Podstatným rozhodnutím, které je třeba učinit na začátku, je zda bude pro vývoj
+aplikace v Qt použit Qt Designer, tedy grafický návrhář uživatelského rozhraní.
+Jak se ukázalo na příkladu mé aplikace, pokud se jedná o funkcionalitu
+s nestandardizovanými požadavky na výstup, je jednodušší a jistější použít
+přímý návrh ve zdrojovém k´odu.
+
+Program jako takový má jistě několik dalších možností, jak vylepšit
+nedokonalosti, které vznikly v průběhu práce. Jedná se především o
+- zavedení automatizovaného testování pomocí jednotkových testů,
+- zlepšení možnosti navigace v panelech souborů,
+- lepší komunikace aktuálního adresáře,
+- rozšíření uživatelského rozhraní o další grafické prvky.
