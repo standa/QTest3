@@ -19,7 +19,7 @@ Widget::Widget(QWidget *parent)
 
     centerWindow();
 
-    setWindowTitle(tr("File manager"));
+    setWindowTitle(tr("File manager [root: %1]").arg(dirRoot()));
 
     loadSettings();
 }
@@ -265,8 +265,8 @@ Widget::~Widget()
   get the root of the disk... on windows it should be c:, on linux /
   */
 QString Widget::dirRoot()
-{
-    return QString("/");
+{    
+    return QString("/tmp");
 }
 
 void Widget::onCopyButtonClicked()
